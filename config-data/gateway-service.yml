@@ -1,9 +1,22 @@
 server:
   port: 9090
+
+spring:
+  cors:
+    allowed-origins: "http://localhost:3000" # aquí puedes especificar los orígenes permitidos, separados por comas
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    allowed-headers: "*" # aquí puedes especificar los headers permitidos
+    max-age: 3600 # aquí puedes especificar la duración en segundos del pre-flight request cache
+
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8090/eureka}
+
 spring:
   cloud:
     gateway:
